@@ -25,8 +25,9 @@ inquirer
         name: 'usage',
     },
     {
-        type: 'input',
+        type: 'list', // Can change to checkbox if I can get the script working for it
         message: 'License:',
+        choices: ['Apache', 'BSD', 'GNU', 'MIT', 'Mozilla Public License', 'None',],
         name: 'license',
     },
     {
@@ -44,6 +45,16 @@ inquirer
         message: 'Questions:',
         name: 'questions',
     },
+    {
+        type: 'input',
+        message: 'GitHub Username:',
+        name: 'github',
+    },
+    {
+        type: 'input',
+        message: 'Email Address:',
+        name: 'email',
+    },
 ])
 .then((answers) => {
     var mdText = writeToFile(answers);
@@ -51,7 +62,7 @@ inquirer
         if (err) {
             console.log(err);
         }
-        console.log("Successful!");
+        // console.log("Successful!");
     })
 })
 
