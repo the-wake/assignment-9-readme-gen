@@ -84,22 +84,25 @@ ${data.description}
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)${renderLicenseLink(data.license)}
-- [How to Contribute](#how-to-contribute)
-- [Testing](#testing)
+- [Contributing](#contributing)
+- [Tests](#tests)
 - [Questions](#questions)
 
 ## Installation
 ${data.installation}
+
+## Usage
+${data.usage}
 
 ## Credits
 Awesome generator made by Ben Martin.
 
 ${renderLicenseSection(data.license)}
 
-## How to Contribute
+## Contributing
 ${data.contribution}
 
-## Testing
+## Tests
 ${data.testing}
 
 ## Questions
@@ -107,4 +110,3 @@ Questions? Reach out to me at <a href="mailto: ${data.email}">${data.email}</a>.
 }
 
 module.exports = generateMarkdown;
-
