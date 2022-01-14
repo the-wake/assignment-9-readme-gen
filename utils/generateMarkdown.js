@@ -103,32 +103,8 @@ ${data.contribution}
 ${data.testing}
 
 ## Questions
-${data.questions}
-
-### GitHub
-<a href="https://github.com/${data.github}">${data.github}</a>
-
-### Email
-<a href="mailto: ${data.email}">${data.email}</a>`;
+Questions? Reach out to me at <a href="mailto: ${data.email}">${data.email}</a>. You can find my GitHub profile at <a href="https://github.com/${data.github}">${data.github}</a>.`;
 }
 
 module.exports = generateMarkdown;
 
-
-  // switch (data.license) {
-  //   case 'Apache':
-  //     var chosenLicense = licenses[0];
-  //     break;
-  //   case 'BSD':
-  //     var chosenLicense = licenses[1];
-  //     break;
-  //   case 'GNU':
-  //     var chosenLicense = licenses[2];
-  //     break;
-  //   case 'Mozilla Public License':
-  //     var chosenLicense = licenses[3];
-  //     break;
-  //   case 'None':
-  //     var chosenLicense = licenses[4];
-  //     break;
-  // }
