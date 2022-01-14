@@ -15,28 +15,28 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Installation Instructions:',
+        message: 'Installation:',
         name: 'installation',
     },
     {
         type: 'input',
-        message: 'Usage Information:',
+        message: 'Enter Usage Information:',
         name: 'usage',
     },
     {
-        type: 'list',
-        message: 'License Used:',
+        type: 'list', // Can change to checkbox if I can get the script working for it
+        message: 'License:',
         choices: ['Apache', 'BSD', 'GNU', 'MIT', 'Mozilla Public License', 'None',],
         name: 'license',
     },
     {
         type: 'input',
-        message: 'Contribution Guidelines:',
+        message: 'Enter Contribution Guidelines:',
         name: 'contribution',
     },
     {
         type: 'input',
-        message: 'Testing Instructions:',
+        message: 'Enter Test Instructions:',
         name: 'testing',
     },
     {
@@ -56,7 +56,7 @@ function init() {
     .prompt([...questions])
     .then((answers) => {
         var mdText = writeToFile(answers);
-        fs.writeFile('newREADME.md', mdText, (err) => {
+        fs.writeFile('exampleREADME.md', mdText, (err) => {
             if (err) {
                 console.log(err);
             }
@@ -64,7 +64,7 @@ function init() {
     })
 }
 
-// Criteria called for the title to be generated dynamically. However I would confirm with the client that this is what they want, since it is not standard practice. Also it prevents us from git ignoring the readme file.
+// Criteria called for the title to be generated dynamically. However I would confirm with the client that this is what they want, since it is not standard practice. Also it prevents us from git ignoring prototype readme files.
 function writeToFile(data) {
     return generateMarkdown(data);
 }
