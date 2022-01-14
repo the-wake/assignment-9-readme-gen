@@ -1,5 +1,3 @@
-// var dataLicense = '';
-
 const licenses = [
   {
     license: 'Apache',
@@ -31,45 +29,10 @@ const licenses = [
   },
 ]
 
-// function setLicense() {
-//   switch (dataLicense) {
-//   case 'Apache':
-//     var chosenLicense = licenses[0];
-//     break;
-//   case 'BSD':
-//     var chosenLicense = licenses[1];
-//     break;
-//   case 'GNU':
-//     var chosenLicense = licenses[2];
-//     break;
-//   case 'Mozilla Public License':
-//     var chosenLicense = licenses[3];
-//     break;
-//   case 'None':
-//     var chosenLicense = licenses[4];
-//     break;
-//   }
-// }
-
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
-
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  // dataLicense = data.license
-  // setLicense();
-  // console.log(chosenLicense);
-
-  switch (data.license) {
+function renderLicenseBadge(license) {
+    switch (license) {
     case 'Apache':
       var chosenLicense = licenses[0];
       break;
@@ -87,19 +50,41 @@ function generateMarkdown(data) {
       break;
   }
 
-  console.log(chosenLicense.link);
-  console.log(chosenLicense.badge);
+  if (license !== 'None') {
+    return `<a href="${chosenLicense.link}">![${license} tag](${chosenLicense.badge})</a>`;
+  } else {
+    return '';
+  }
+}
 
+// TODO: Create a function that returns the license link
+// If there is no license, return an empty string
+function renderLicenseLink(license) {
+  if (license !== 'None') {
+    return `\n- [License](#license)`;
+  } else {
+    return '';
+  }
+}
 
-  // console.log(setLicense.link);
-      
-  // renderLicenseBadge(chosenLicense);
-  // renderLicenseLink(chosenLicense);
-  // renderLicenseSection(chosenLicense);
+// Note: There's a conflict here in the instructions. Code specifies to make a single license section. Instructions README indicates badge should be near top of document and the other data should be returned further down in the body text. I've chosen to follow the instructions in the README.
 
-  // console.log(data.license)
-  // console.log(`generateMarkdown says: ${data.title}`);
+// TODO: Create a function that returns the license section of README
+// If there is no license, return an empty string
+function renderLicenseSection(license) {
+  if (license !== 'None') {
+    return `## License
+This project is licensed under the ${license} license.`
+  } else {
+    return ''; // Maybe don't use this?
+  }  
+}
+
+// TODO: Create a function to generate markdown for README
+function generateMarkdown(data) {
+
   return `# ${data.title}
+${renderLicenseBadge(data.license)}
 
 ## Description
 ${data.description}
@@ -107,8 +92,7 @@ ${data.description}
 ## Table of Content
 - [Installation](#installation)
 - [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
+- [Credits](#credits)${renderLicenseLink(data.license)}
 - [How to Contribute](#how-to-contribute)
 - [Testing](#testing)
 - [Questions](#questions)
@@ -119,8 +103,7 @@ ${data.installation}
 ## Credits
 Awesome generator made by Ben Martin.
 
-## License
-${data.license}
+${renderLicenseSection(data.license)}
 
 ## How to Contribute
 ${data.contribution}
@@ -142,3 +125,25 @@ module.exports = generateMarkdown;
 
 // Don't export the other things. generateMarkdown should grab all of the returned data.
 // You can get links to licenses online.
+
+
+
+
+
+  // switch (data.license) {
+  //   case 'Apache':
+  //     var chosenLicense = licenses[0];
+  //     break;
+  //   case 'BSD':
+  //     var chosenLicense = licenses[1];
+  //     break;
+  //   case 'GNU':
+  //     var chosenLicense = licenses[2];
+  //     break;
+  //   case 'Mozilla Public License':
+  //     var chosenLicense = licenses[3];
+  //     break;
+  //   case 'None':
+  //     var chosenLicense = licenses[4];
+  //     break;
+  // }
