@@ -15,4 +15,3 @@ When index.js is run in Node, users will be prompted to input a number of parame
 
 
 Note that the user can specify no license. In this case, the License section (and its corresponding listing in the table of contents) will not be generated.
-
