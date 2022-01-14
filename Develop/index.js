@@ -2,7 +2,6 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-// // TODO: Create an array of questions for user input
 const questions = [
     {
         type: 'input',
@@ -57,39 +56,23 @@ const questions = [
     },
 ];
 
-
-
-// TODO: Create a function to write README file
-function writeToFile(data) { // Had a filename argument before data
-    return generateMarkdown(data);
-}
-
-// // TODO: Create a function to initialize app
 function init() {
     inquirer
-    .prompt([
-        questions[0],
-        questions[1],
-        questions[2],
-        questions[3],
-        questions[4],
-        questions[5],
-        questions[6],
-        questions[7],
-        questions[8],
-        questions[9],
-    ])
+    .prompt([...questions])
     .then((answers) => {
         var mdText = writeToFile(answers);
         fs.writeFile('newREADME.md', mdText, (err) => {
             if (err) {
                 console.log(err);
             }
-            // console.log("Successful!");
         })
     })
 }
 
+// Criteria called for the title to be generated dynamically. However I would confirm with the client that this is what they want, since it is not standard practice. Also it prevents us from git ignoring the readme file.
+function writeToFile(data) {
+    return generateMarkdown(data);
+}
+
 
 init();
-

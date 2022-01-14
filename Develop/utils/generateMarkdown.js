@@ -29,8 +29,6 @@ const licenses = [
   },
 ]
 
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
 function renderLicenseBadge(license) {
     switch (license) {
     case 'Apache':
@@ -57,8 +55,6 @@ function renderLicenseBadge(license) {
   }
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license !== 'None') {
     return `\n- [License](#license)`;
@@ -67,10 +63,6 @@ function renderLicenseLink(license) {
   }
 }
 
-// Note: There's a conflict here in the instructions. Code specifies to make a single license section. Instructions README indicates badge should be near top of document and the other data should be returned further down in the body text. I've chosen to follow the instructions in the README.
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
 function renderLicenseSection(license) {
   if (license !== 'None') {
     return `## License
@@ -80,7 +72,6 @@ This project is licensed under the ${license} license.`
   }  
 }
 
-// TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
 
   return `# ${data.title}
@@ -122,12 +113,6 @@ ${data.questions}
 }
 
 module.exports = generateMarkdown;
-
-// Don't export the other things. generateMarkdown should grab all of the returned data.
-// You can get links to licenses online.
-
-
-
 
 
   // switch (data.license) {
