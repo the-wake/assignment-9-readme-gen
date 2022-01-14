@@ -24,7 +24,7 @@ const questions = [
         name: 'usage',
     },
     {
-        type: 'list', // Can change to checkbox if I can get the script working for it
+        type: 'list',
         message: 'License:',
         choices: ['Apache', 'BSD', 'GNU', 'MIT', 'Mozilla Public License', 'None',],
         name: 'license',
