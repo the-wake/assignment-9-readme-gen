@@ -15,28 +15,28 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Installation:',
+        message: 'Installation Instructions:',
         name: 'installation',
     },
     {
         type: 'input',
-        message: 'Enter Usage Information:',
+        message: 'Usage Information:',
         name: 'usage',
     },
     {
-        type: 'list', // Can change to checkbox if I can get the script working for it
-        message: 'License:',
+        type: 'list',
+        message: 'License Used:',
         choices: ['Apache', 'BSD', 'GNU', 'MIT', 'Mozilla Public License', 'None',],
         name: 'license',
     },
     {
         type: 'input',
-        message: 'Enter Contribution Guidelines:',
+        message: 'Contribution Guidelines:',
         name: 'contribution',
     },
     {
         type: 'input',
-        message: 'Enter Test Instructions:',
+        message: 'Testing Instructions:',
         name: 'testing',
     },
     {
